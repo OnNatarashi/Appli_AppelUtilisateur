@@ -1,0 +1,93 @@
+<?php include ($_SERVER["DOCUMENT_ROOT"] . '/Appli_AppelUtilisateur/templates/layout.html') ?>
+<body>
+	<style>
+		button {
+			width: 50px;
+			height: 25px;
+		}
+		table th {
+			text-align: center;
+		}
+	</style>
+		<div id="corps">
+
+			<div id="intro">
+				<img src="../assets/img/eaht.gif" alt="Logo" /><H1>LAC GV NATATION</H1>
+				<H2>Application AppelUtilisateur - Liste des Nageurs</H2>
+					<table id="table_nageurs" class="display">
+						<thead>
+							<tr>
+								<th> Activité </th>
+								<th> Nom </th>
+								<th> Prenom </th>
+								<th> Date de naissance </th>
+								<th> Adresse </th>
+								<th> Sexe </th>
+								<th> Cours </th>
+								<th> Appel d'Urgence </th>
+								<th> Groupe </th>
+								<th colspan='4'> Actions </th>
+							</tr>
+						</thead>
+						<?php foreach ($this->data as $row): ?>
+						<tbody>
+							<tr>
+								<?php if($row->enable): ?>
+									<td><img src="../assets/img/valide.jpg" alt="" width="50px"/></td>
+								<?php else: ?>
+									<td><img src="../assets/img/desactive.png" alt="" width="50px"/></td>
+								<?php endif ?>
+								<td><?php echo $row->nom ?></td>
+								<td><?php echo $row->prenom ?></td>
+								<td><?php echo $row->date_naissance ?></td>
+								<td><?php echo $row->adresse ?></td>
+								<td><?php echo $row->sexe ?></td>
+								<td><?php echo $row->cours ?></td>
+								<td>0<?php echo $row->appel_urgence ?></td>
+								<td><?php echo $row->groupe ?></td>
+								<td><a href= '../utilisateurs/edit/controller.php?id="<?php echo $row->id ?>"'><button><span class="glyphicon glyphicon-edit"></span></button></a></td>
+								<td><a href= '../utilisateurs/enable/controller.php?id="<?php echo $row->id ?>"'>
+								<?php if($row->enable): ?>
+									<button><span class="glyphicon glyphicon-remove"></span></button>
+								<?php else: ?>
+									<button><span class="glyphicon glyphicon-ok"></span></button>
+								<?php endif ?>
+								</a></td>
+
+								<div class="modal" id="modal_<?php echo $row->id ?>" tabindex="-1" role="dialog">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title">Supression</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								        <p>Êtes-vous sur de vouloir supprimé ce nageurs?</p>
+								      </div>
+								      <div class="modal-footer">
+								        <a href= '../utilisateurs/delete/controller.php?id="<?php echo $row->id ?>"'><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span></button></a>
+								        <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+
+								<td><button type="button" data-toggle="modal" data-target="#modal_<?php echo $row->id ?>"><span class="glyphicon glyphicon-trash"></span></button></td>
+								<td><a href= '../utilisateurs/show/controller.php?id="<?php echo $row->id ?>"'><button><span class="glyphicon glyphicon-eye-open"></span></button></a></td>
+							</tr></a>
+						</tbody>
+						<?php endforeach; ?>
+					</table>
+				<script>
+					$(document).ready(function(){
+     				 $('#table_nageurs').DataTable();
+      				});
+   				</script>
+			</div>
+			<a href= 'create_user.php'><button><span class="glyphicon glyphicon-new-window"></span></button></a>
+			<a href= '../Menu.html'><button><span class="glyphicon glyphicon-backward"></span></button></a>
+		</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<?php include ($_SERVER["DOCUMENT_ROOT"] . '/Appli_AppelUtilisateur/templates/layout.html') ?>
+<head>
+	<link rel="stylesheet" href="../../assets/CSS/style.css">
+</head>
+<body>
+		<div id="corps">
+			<div id="intro">
+				<img src="../../assets/img/eaht.gif" alt="Logo" /><H1>LAC GV NATATION</H1>
+				<H2>Application AppelUtilisateur - Edition de Nageurs</H2>
+			</div>
+			<form action="traitementupdateuser.php?id=<?php echo $row->id ?>" method="POST">
+				<h1>Formulaire de modifications:</h1>
+				<div>
+					<div class="col-md-4">Nom:</div>
+					<div class="col-md-8"><input name="nom" size="20" maxlength="50" value="<?php echo $row->nom ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-4">Prenom:</div>
+					<div class="col-md-8"><input name="prenom" size="20" maxlength="50" value="<?php echo $row->prenom ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-3">Date de naissance (Format : AAAA-MM-JJ):</div>
+					<div class="col-md-8"><input name="date_naissance" size="20" maxlength="50"  value="<?php echo $row->date_naissance ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-3">Adresse:</div>
+					<div class="col-md-8"><input name="adresse" size="20" maxlength="50"  value="<?php echo $row->adresse ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-3">Sexe:</div>
+					<div class="col-md-8"><input name="sexe" size="20" maxlength="50"  value="<?php echo $row->sexe ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-3">Numéro d'urgence:</div>
+					<div class="col-md-8"><input name="appel_urgence" size="20" maxlength="50"  value="<?php echo $row->appel_urgence ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-3">Cours: (D ou P)</div>
+					<div class="col-md-8"><input name="cours" size="20" maxlength="50" value="<?php echo $row->cours ?>"/></div>
+				</div></br>
+				<div>
+					<div class="col-md-3">Groupe: (1 ou 2)</div>
+					<div class="col-md-8"><input name="groupe" size="20" maxlength="50"  value="<?php echo $row->groupe ?>"/></div>
+				</div></br>
+				<button><span class="glyphicon glyphicon-saved"></span></button>
+			</form></br>
+			<a href= '../controller.php'><button><span class="glyphicon glyphicon-backward"></span></button></a>
+		</div>
+</body>
+</html>

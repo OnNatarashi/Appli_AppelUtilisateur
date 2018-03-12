@@ -1,0 +1,57 @@
+body
+{
+   background-color: BLACK;
+}
+#corps
+{
+   background-color: #89725B;
+   width: 1000px;
+   border: 5px solid white;
+}
+#intro
+{
+	text-align : center;
+	height: 500px;
+}
+
+table
+{
+    border-collapse: collapse;
+}
+
+td, th
+{
+    border: 1px solid black;
+}
+
+#fiche
+{
+	width: 100%;
+}
+#present_P
+{
+	float: left;
+	width: 30%;
+	border: 5px solid black;
+}
+
+#present_D
+{
+	float: left;
+	width: 30%;
+	border: 5px solid black;
+}
+
+#nageurs
+{
+	width: 30%;
+	float: right;
+	border: 5px solid black;
+}
+
+#nageurs_liste
+{
+	height: 300px;
+	overflow-y: scroll;
+	background-color: black;
+}
